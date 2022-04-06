@@ -1,27 +1,36 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  line-height: 1.6;
-  font-size: 18px;
+	width: 100vw;
+	height: auto;
+	background: linear-gradient(180deg, #006c85 50%, #78e2fa 100%);
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Kanit', sans-serif, Ubuntu;
+	line-height: 1.6;
+	font-size: 24px;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 a {
-  color: #3e546d;
-  text-decoration: none;
+	color: #3e546d;
+	text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 img {
-  max-width: 100%;
-  display: block;
+	max-width: 100%;
+	display: block;
+}
+
+.title {
+	font-family: 'Audiowide', cursive, Ubuntu;
 }

@@ -1,26 +1,32 @@
 {
-  "name": "learn-starter",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "date-fns": "^2.27.0",
-    "gray-matter": "^4.0.3",
-    "next": "^11.0.0",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^6.7.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "remark": "^14.0.1",
-    "remark-html": "^15.0.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.3.11",
-    "tailwindcss": "^2.2.19"
-  }
+	"name": "Leonardo-Canales-Portfolio",
+	"version": "0.1.1",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"date-fns": "^2.27.0",
+		"framer-motion": "^6.2.8",
+		"gray-matter": "^4.0.3",
+		"next": "^12.1.4",
+		"postcss-flexbugs-fixes": "^5.0.2",
+		"postcss-preset-env": "^6.7.0",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"remark": "^14.0.1",
+		"remark-html": "^15.0.0"
+	},
+	"devDependencies": {
+		"@next/eslint-plugin-next": "^12.1.4",
+		"autoprefixer": "^10.4.0",
+		"eslint": "^8.12.0",
+		"eslint-plugin-react": "^7.29.4",
+		"eslint-plugin-react-hooks": "^4.4.0",
+		"postcss": "^8.3.11",
+		"tailwindcss": "^2.2.19"
+	}
 }
