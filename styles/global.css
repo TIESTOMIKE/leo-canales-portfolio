@@ -1,36 +1,57 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+	height: 100%;
+}
 body {
-	width: 100vw;
 	height: auto;
-	background: linear-gradient(180deg, #006c85 50%, #78e2fa 100%);
 	padding: 0;
 	margin: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	font-family: 'Kanit', sans-serif, Ubuntu;
 	line-height: 1.6;
 	font-size: 24px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background: rgb(19, 28, 33);
+	background-image: linear-gradient(
+		180deg,
+		hsl(201deg 27% 10%) 40%,
+		hsl(202deg 42% 11%) 75%,
+		hsl(203deg 57% 11%) 86%,
+		hsl(203deg 73% 12%) 92%,
+		hsl(204deg 86% 13%) 96%,
+		hsl(205deg 95% 13%) 98%,
+		hsl(206deg 97% 15%) 99%,
+		hsl(203deg 100% 17%) 100%,
+		hsl(200deg 100% 19%) 101%,
+		hsl(198deg 100% 21%) 101%,
+		hsl(196deg 100% 23%) 101%,
+		hsl(193deg 100% 24%) 100%,
+		hsl(191deg 100% 26%) 100%
+	);
 }
 
 * {
 	box-sizing: border-box;
 }
 
-a {
-	color: #3e546d;
-	text-decoration: none;
+.home-button {
+	font-family: Audiowide;
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 46px;
+	letter-spacing: -0.1em;
+	text-align: center;
+	text-shadow: -2px 2px 4px rgb(224, 117, 0, 1);
 }
 
-a:hover {
-	text-decoration: underline;
-}
+@layer utilities {
+	.text-shadow-blue-light {
+	}
 
-img {
-	max-width: 100%;
-	display: block;
-}
-
-.title {
-	font-family: 'Audiowide', cursive, Ubuntu;
+	.text-shadow-white {
+		text-shadow: -1px 1px 4px rgb(255 255 255 / 80%);
+	}
 }

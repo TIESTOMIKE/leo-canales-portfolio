@@ -2,8 +2,10 @@
 	"trailingComma": "all",
 	"editor.formatOnSave": true,
 	"tabWidth": 4,
-	"semi": false,
+	"semi": true,
 	"singleQuote": true,
 	"bracketSpacing": true,
-	"useTabs": true
+	"useTabs": true,
+	"arrowParens": "avoid",
+	"proseWrap": "always"
 }
