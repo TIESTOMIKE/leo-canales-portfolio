@@ -1,7 +1,7 @@
 const colors = require('tailwindcss/colors');
 delete colors['lightBlue'];
 module.exports = {
-	purge: [
+	content: [
 		'./pages/**/*.{js,ts,jsx,tsx}',
 		'./components/**/*.{js,ts,jsx,tsx}',
 	],
@@ -11,8 +11,19 @@ module.exports = {
 			colors,
 		},
 	},
+	corePlugins: {
+		preflight: false,
+	},
 	variants: {
-		extend: {},
+		extend: {
+			textShadow: [
+				'responsive',
+				'hover',
+				'focus',
+				'active',
+				'group-hover',
+			],
+		},
 	},
 	plugins: [],
 };

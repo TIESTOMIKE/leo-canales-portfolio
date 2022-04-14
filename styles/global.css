@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+	.text-shadow-blue-light {
+		text-shadow: -3px 2px 7px rgb(0 44 63 / 60%);
+	}
+
+	.text-shadow-white {
+		text-shadow: -3px 2px 7px rgb(255 255 255 / 60%);
+	}
+
+	.text-shadow-none {
+		text-shadow: none;
+	}
+
+	.bg-gradient-blue {
+		background: rgb(34 211 238 / 100%);
+		color: #012a4a;
+	}
+}
+
 html {
 	height: 100%;
 }
@@ -45,13 +64,4 @@ body {
 	letter-spacing: -0.1em;
 	text-align: center;
 	text-shadow: -2px 2px 4px rgb(224, 117, 0, 1);
-}
-
-@layer utilities {
-	.text-shadow-blue-light {
-	}
-
-	.text-shadow-white {
-		text-shadow: -1px 1px 4px rgb(255 255 255 / 80%);
-	}
 }
