@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import NavBar from '../NavBar';
+import NavBar from '../NavBar/NavBar';
 
 export const siteTitle = 'Leonardo Canales';
 
@@ -16,7 +16,9 @@ export default function main({ children }) {
 				<meta name="twitter:card" content="summary_large_image" />
 			</Head>
 			<NavBar />
-			<main>{children}</main>
+			<main className="max-w-7xl mx-auto px-2 py-2 sm:px-6 lg:px-8">
+				{children}
+			</main>
 		</div>
 	);
 }

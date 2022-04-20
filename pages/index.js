@@ -1,13 +1,10 @@
 import Head from 'next/head';
-import Main, { siteTitle } from '../components/layouts/main';
-import Link from 'next/link';
+import { siteTitle } from '../components/layouts/main';
 
-export default function Home({ allPostsData }) {
+export default function Home() {
 	return (
-		<Main home>
-			<Head>
-				<title>{siteTitle}</title>
-			</Head>
-		</Main>
+		<Head>
+			<title>{siteTitle}</title>
+		</Head>
 	);
 }
