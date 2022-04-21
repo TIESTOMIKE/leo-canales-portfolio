@@ -1,5 +1,6 @@
 import { Disclosure } from '@headlessui/react';
 import Link from 'next/link';
+import HeroIcon from '../HeroIcon';
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ');
@@ -24,7 +25,13 @@ function MobileMenu({ navigation, pathName }) {
 								pathName === item.href ? 'page' : undefined
 							}
 						>
-							{item.name}
+							<div className="inline-flex items-center flex-row align-baseline justify-start">
+								<HeroIcon
+									className="w-5 h-5 text-orange-500 mr-2 inline-block"
+									icon={item.icon}
+								/>
+								{item.name}
+							</div>
 						</Disclosure.Button>
 					</Link>
 				))}
