@@ -1,7 +1,7 @@
-import React from 'react';
+import withTransition from '../HOC/withTransition';
 
 function skills() {
 	return <div>skills</div>;
 }
 
-export default skills;
+export default withTransition(skills);

@@ -1,7 +1,7 @@
-import React from 'react'
+import withTransition from '../HOC/withTransition';
 
 function aboutMe() {
-	return <div>aboutMe</div>
+	return <div>aboutMe</div>;
 }
 
-export default aboutMe
+export default withTransition(aboutMe);

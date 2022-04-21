@@ -1,7 +1,7 @@
-import React from 'react';
+import withTransition from '../HOC/withTransition';
 
 function contact() {
 	return <div>contact</div>;
 }
 
-export default contact;
+export default withTransition(contact);

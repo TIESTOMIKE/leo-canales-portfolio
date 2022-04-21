@@ -4,10 +4,34 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import MobileMenu from './MobileMenu';
 import navigation from '../../lib/navigation';
+import { motion } from 'framer-motion';
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ');
 }
+
+const moveToLeft = {
+	initial: {
+		x: 150,
+		opacity: 0,
+	},
+	animate: {
+		x: 0,
+		opacity: 1,
+		transition: {
+			duration: 0.4,
+			ease: 'easeIn',
+		},
+	},
+};
+
+const stagger = {
+	animate: {
+		transition: {
+			staggerChildren: 0.1,
+		},
+	},
+};
 
 export default function NavBar() {
 	const router = useRouter();
@@ -16,7 +40,12 @@ export default function NavBar() {
 		<Disclosure as="nav" className="relative">
 			{({ open }) => (
 				<>
-					<div className="max-w-7xl mx-auto px-2 py-2 sm:px-6 lg:px-8">
+					<motion.div
+						initial="initial"
+						animate="animate"
+						exit={{ opacity: 0 }}
+						className="max-w-7xl mx-auto px-2 py-2 sm:px-6 lg:px-8"
+					>
 						<div className="relative flex items-center justify-between h-16">
 							<div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
 								{/* Mobile menu button*/}
@@ -46,13 +75,17 @@ export default function NavBar() {
 									</Link>
 								</div>
 								<div className="hidden sm:block sm:ml-6">
-									<div className="flex justify-end space-x-4">
+									<motion.div
+										variants={stagger}
+										className="flex justify-end space-x-4"
+									>
 										{navigation.map(item => (
 											<Link
 												key={item.name}
 												href={item.href}
 											>
-												<a
+												<motion.a
+													variants={moveToLeft}
 													className={classNames(
 														router.pathname ===
 															item.href
@@ -67,14 +100,14 @@ export default function NavBar() {
 													}
 												>
 													{item.name}
-												</a>
+												</motion.a>
 											</Link>
 										))}
-									</div>
+									</motion.div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</motion.div>
 					<MobileMenu
 						navigation={navigation}
 						pathName={router.pathname}
