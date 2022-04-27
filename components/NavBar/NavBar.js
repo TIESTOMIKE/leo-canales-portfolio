@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import MobileMenu from './MobileMenu';
 import navigation from '../../lib/navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ');
@@ -25,6 +25,43 @@ const moveToLeft = {
 	},
 };
 
+const menuVariant = {
+	initial: {
+		x: -400,
+	},
+	animate: {
+		x: 0,
+		transition: {
+			duration: 0.4,
+			type: 'spring',
+			stiffness: 75,
+		},
+	},
+};
+
+const menuButtonVariant = {
+	initial: {},
+	animate: {
+		rotate: 180,
+		transition: {
+			duration: 0.2,
+			type: 'spring',
+			stiffness: 100,
+		},
+	},
+	close: {
+		rotate: 0,
+		transition: {
+			duration: 0.2,
+			type: 'spring',
+			stiffness: 100,
+		},
+	},
+	rotate: { rotate: [0, -30, 0], transition: { duration: 0.5 } },
+	// You can do whatever you want here, if you just want it to stop completely use `rotate: 0`
+	stop: { y: [0, -10, 0], transition: { repeat: Infinity, repeatDelay: 3 } },
+};
+
 const stagger = {
 	animate: {
 		transition: {
@@ -40,38 +77,66 @@ export default function NavBar() {
 		<Disclosure as="nav" className="relative">
 			{({ open }) => (
 				<>
-					<motion.div
-						initial="initial"
-						animate="animate"
-						exit={{ opacity: 0 }}
-						className="max-w-7xl mx-auto px-2 py-2 sm:px-6 lg:px-8"
-					>
+					<div className="max-w-7xl mx-auto px-2 py-2 sm:px-6 lg:px-8">
 						<div className="relative flex items-center justify-between h-16">
-							<div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+							<motion.div
+								variants={menuVariant}
+								initial="initial"
+								animate="animate"
+								className="absolute inset-y-0 left-0 flex items-center sm:hidden"
+							>
 								{/* Mobile menu button*/}
 								<Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md bg-transparent text-orange-500 ring-2 ring-orange-500  focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-orange-500">
 									<span className="sr-only">
 										Open main menu
 									</span>
-									{open ? (
-										<XIcon
-											className="block h-6 w-6"
-											aria-hidden="true"
-										/>
-									) : (
-										<MenuIcon
-											className="block h-6 w-6"
-											aria-hidden="true"
-										/>
-									)}
+									<AnimatePresence>
+										{open ? (
+											<motion.div
+												variants={menuButtonVariant}
+												initial="initial"
+												animate={
+													open ? 'animate' : 'close'
+												}
+											>
+												<XIcon
+													className="block h-6 w-6"
+													aria-hidden="true"
+												/>
+											</motion.div>
+										) : (
+											<motion.div
+												variants={menuButtonVariant}
+												initial="initial"
+												animate={
+													open ? 'animate' : 'close'
+												}
+											>
+												<MenuIcon
+													className="block h-6 w-6"
+													aria-hidden="true"
+												/>
+											</motion.div>
+										)}
+									</AnimatePresence>
 								</Disclosure.Button>
-							</div>
+							</motion.div>
 							<div className="flex-1 flex items-center justify-around sm:items-center sm:justify-between">
 								<div className="flex-shrink-0 flex items-center">
 									<Link href={'/'}>
-										<p className="home-button h-auto w-auto text-cyan-100">
+										<motion.p
+											animate={{
+												opacity: [
+													0.05, 1, 0.05, 1, 0.05, 1,
+												],
+											}}
+											transition={{
+												duration: 2,
+											}}
+											className="home-button h-auto w-auto text-cyan-100"
+										>
 											LEO
-										</p>
+										</motion.p>
 									</Link>
 								</div>
 								<div className="hidden sm:block sm:ml-6">
@@ -85,6 +150,7 @@ export default function NavBar() {
 												href={item.href}
 											>
 												<motion.a
+													layout
 													variants={moveToLeft}
 													className={classNames(
 														router.pathname ===
@@ -107,7 +173,7 @@ export default function NavBar() {
 								</div>
 							</div>
 						</div>
-					</motion.div>
+					</div>
 					<MobileMenu
 						navigation={navigation}
 						pathName={router.pathname}

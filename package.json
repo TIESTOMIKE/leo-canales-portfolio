@@ -13,6 +13,7 @@
 		"@heroicons/react": "^1.0.6",
 		"framer-motion": "^6.2.8",
 		"gray-matter": "^4.0.3",
+		"jotai": "^1.6.4",
 		"next": "^12.1.4",
 		"next-seo": "^5.4.0",
 		"postcss-flexbugs-fixes": "^5.0.2",

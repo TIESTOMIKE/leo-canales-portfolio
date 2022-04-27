@@ -1,19 +1,55 @@
 import { Disclosure } from '@headlessui/react';
 import Link from 'next/link';
 import HeroIcon from '../HeroIcon';
+import { motion } from 'framer-motion';
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ');
 }
 
+const variants = {
+	initial: { opacity: 0 },
+	animate: {
+		opacity: 1,
+		transition: {
+			type: 'linear',
+			duration: 1,
+		},
+	},
+};
+
+const menuItemVar = {
+	open: {
+		y: 0,
+		opacity: 1,
+		transition: {
+			y: { stiffness: 1000, velocity: -100 },
+		},
+	},
+	closed: {
+		y: 50,
+		opacity: 0,
+		transition: {
+			y: { stiffness: 1000 },
+		},
+	},
+};
+
 function MobileMenu({ navigation, pathName }) {
 	return (
 		<Disclosure.Panel className="sm:hidden">
-			<div className="px-2 pt-2 pb-3 space-y-1 absolute bottom main-menu rounded-lg w-full ring-2 ring-orange-500 ">
+			<motion.div
+				initial="initial"
+				animate="animate"
+				variants={variants}
+				className="px-2 pt-2 pb-3 space-y-1 absolute bottom main-menu rounded-lg w-full ring-2 ring-orange-500 z-50"
+			>
 				{navigation.map(item => (
 					<Link key={item.name} href={item.href}>
-						<Disclosure.Button
-							as="a"
+						<motion.a
+							variants={menuItemVar}
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.95 }}
 							href={item.href}
 							className={classNames(
 								pathName === item.href
@@ -32,10 +68,10 @@ function MobileMenu({ navigation, pathName }) {
 								/>
 								{item.name}
 							</div>
-						</Disclosure.Button>
+						</motion.a>
 					</Link>
 				))}
-			</div>
+			</motion.div>
 		</Disclosure.Panel>
 	);
 }
