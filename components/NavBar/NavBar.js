@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import MobileMenu from './MobileMenu';
 import navigation from '../../lib/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ');
@@ -90,35 +90,29 @@ export default function NavBar() {
 									<span className="sr-only">
 										Open main menu
 									</span>
-									<AnimatePresence>
-										{open ? (
-											<motion.div
-												variants={menuButtonVariant}
-												initial="initial"
-												animate={
-													open ? 'animate' : 'close'
-												}
-											>
-												<XIcon
-													className="block h-6 w-6"
-													aria-hidden="true"
-												/>
-											</motion.div>
-										) : (
-											<motion.div
-												variants={menuButtonVariant}
-												initial="initial"
-												animate={
-													open ? 'animate' : 'close'
-												}
-											>
-												<MenuIcon
-													className="block h-6 w-6"
-													aria-hidden="true"
-												/>
-											</motion.div>
-										)}
-									</AnimatePresence>
+									{open ? (
+										<motion.div
+											variants={menuButtonVariant}
+											initial="initial"
+											animate={open ? 'animate' : 'close'}
+										>
+											<XIcon
+												className="block h-6 w-6"
+												aria-hidden="true"
+											/>
+										</motion.div>
+									) : (
+										<motion.div
+											variants={menuButtonVariant}
+											initial="initial"
+											animate={open ? 'animate' : 'close'}
+										>
+											<MenuIcon
+												className="block h-6 w-6"
+												aria-hidden="true"
+											/>
+										</motion.div>
+									)}
 								</Disclosure.Button>
 							</motion.div>
 							<div className="flex-1 flex items-center justify-around sm:items-center sm:justify-between">
@@ -152,6 +146,8 @@ export default function NavBar() {
 												<motion.a
 													layout
 													variants={moveToLeft}
+													initial="initial"
+													animate="animate"
 													className={classNames(
 														router.pathname ===
 															item.href
@@ -177,6 +173,7 @@ export default function NavBar() {
 					<MobileMenu
 						navigation={navigation}
 						pathName={router.pathname}
+						open={open}
 					/>
 				</>
 			)}
