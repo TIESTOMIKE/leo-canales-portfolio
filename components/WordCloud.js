@@ -14,7 +14,7 @@ function WordCloud() {
 						key={skill}
 						href={{ pathname: `/skills`, query: { key: skill } }}
 					>
-						<motion.span className="cursor-pointer mr-1 ml-1 bg-transparent text-lg text-cyan-100 border-transparent hover:text-shadow-blue-light hover:text-cyan-400">
+						<motion.span className="first-letter:font-bold first-letter:text-orange-500 cursor-pointer mx-1 bg-transparent text-xl text-cyan-100 border-transparent hover:text-shadow-blue-light hover:text-cyan-400">
 							{skill}
 						</motion.span>
 					</Link>
