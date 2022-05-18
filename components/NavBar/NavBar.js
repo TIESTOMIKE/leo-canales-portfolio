@@ -127,7 +127,7 @@ export default function NavBar() {
 											transition={{
 												duration: 2,
 											}}
-											className="home-button h-auto w-auto text-cyan-100"
+											className="home-button h-auto w-auto text-cyan-300"
 										>
 											LEO
 										</motion.p>
@@ -153,7 +153,7 @@ export default function NavBar() {
 															item.href
 															? 'bg-gradient-blue text-white border-none'
 															: 'bg-transparent text-cyan-100 border-transparent hover:text-shadow-blue-light hover:border-solid hover:border-2 hover:border-cyan-400 hover:text-cyan-400',
-														'px-3 py-2 rounded-md text-lg font-medium no-underline border-solid border-2',
+														'px-3 py-2 rounded-md text-lg font-medium no-underline border-solid border-2 cursor-pointer',
 													)}
 													aria-current={
 														item.current

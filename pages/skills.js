@@ -3,28 +3,44 @@ import { useRouter } from 'next/router';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
 import { experienceAtom } from '../atoms';
+import Experience from '../components/Experience';
+import { useEffect, useState } from 'react';
 
 function skills() {
 	const [experience, setExperience] = useAtom(experienceAtom);
+	const [experienceFiltered, setExperienceFiltered] = useState(experience);
 	const router = useRouter();
-	const skillKey = router.query?.key;
+	const [skillKey, setSkillKey] = useState(router.query?.key);
 
-	const experienceFiltered = experience.filter(work => {
-		return work.technologies.includes(skillKey);
-	});
+	useEffect(() => {
+		if (router.isReady) {
+			const { key } = router.query;
+			if (!key) return null;
+			setSkillKey(key);
+		}
+	}, [router.isReady]);
 
-	console.log(experienceFiltered);
+	useEffect(() => {
+		if (skillKey && experience) {
+			setExperienceFiltered(
+				experience.filter(work => {
+					return work.technologies.includes(skillKey);
+				}),
+			);
+		}
+	}, [skillKey, experience]);
 
 	return (
 		<>
-			{skillKey ? (
-				<div>Experience using {router.query.key}</div>
-			) : (
-				'My experience'
-			)}
 			<div>
+				{skillKey
+					? `My experience using ${skillKey}:`
+					: 'My experience:'}
+			</div>
+
+			<div className="p-1 md:p-6 w-full">
 				{experienceFiltered.map((value, index) => (
-					<div key={index}>{JSON.stringify(value)}</div>
+					<Experience key={index} experience={value} />
 				))}
 			</div>
 		</>

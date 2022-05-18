@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import { siteTitle } from '../components/layouts/main';
 import withTransition from '../HOC/withTransition';
+import AnimatedTitle from '../components/AnimatedTitle';
+import Player from './player';
+import WordCloud from '../components/WordCloud';
 
 const Home = () => {
 	return (
@@ -8,7 +11,9 @@ const Home = () => {
 			<Head>
 				<title>{siteTitle}</title>
 			</Head>
-			Hola Home
+			<AnimatedTitle />
+			<WordCloud></WordCloud>
+			{/*<Player />*/}
 		</>
 	);
 };

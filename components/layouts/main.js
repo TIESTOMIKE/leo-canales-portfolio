@@ -7,7 +7,7 @@ export const siteTitle = 'Leonardo Canales';
 
 export default function main({ children }) {
 	return (
-		<div className="px-4 mx-auto max-w-8xl sm:px-6 lg:px-8">
+		<div className="px-4 mx-auto max-w-8xl sm:px-6 lg:px-8 w-full">
 			<Head>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
