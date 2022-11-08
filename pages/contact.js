@@ -1,7 +1,5 @@
-import withTransition from '../HOC/withTransition';
-
 function contact() {
-	return <div>contact</div>;
+	return <div className="page">contact</div>;
 }
 
-export default withTransition(contact);
+export default contact;

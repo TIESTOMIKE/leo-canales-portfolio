@@ -6,13 +6,13 @@ import WordCloud from '../components/WordCloud';
 
 const Home = () => {
 	return (
-		<>
+		<div className="page">
 			<Head>
 				<title>{siteTitle}</title>
 			</Head>
 			<AnimatedTitle />
 			<WordCloud></WordCloud>
-		</>
+		</div>
 	);
 };
 

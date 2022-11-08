@@ -1,7 +1,5 @@
-import withTransition from '../HOC/withTransition';
-
 function aboutMe() {
-	return <div>aboutMe</div>;
+	return <div className="page">aboutMe</div>;
 }
 
-export default withTransition(aboutMe);
+export default aboutMe;

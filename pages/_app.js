@@ -1,13 +1,13 @@
 import '../styles/global.css';
 import Main from '../components/layouts/main';
-import { motion, AnimatePresence } from 'framer-motion';
+import PageTransition from '../components/transitions/PageTransition';
 
 export default function App({ Component, pageProps }) {
 	return (
 		<Main home>
-			<AnimatePresence exitBeforeEnter>
+			<PageTransition>
 				<Component {...pageProps} />
-			</AnimatePresence>
+			</PageTransition>
 		</Main>
 	);
 }

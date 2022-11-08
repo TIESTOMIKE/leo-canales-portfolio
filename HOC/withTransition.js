@@ -1,25 +1,22 @@
 import { AnimatePresence, motion } from 'framer-motion';
 const variants = {
 	initial: {
-		x: '-100%',
+		y: '-100%',
 		transition: {
-			type: 'linear',
-			duration: 1,
+			duration: 0.7,
 		},
 	},
 	animate: {
 		opacity: 1,
-		x: 0,
+		y: 0,
 		transition: {
-			type: 'linear',
-			duration: 1,
+			duration: 0.7,
 		},
 	},
 	exit: {
-		x: '100%',
+		y: '100%',
 		transition: {
-			type: 'linear',
-			duration: 1,
+			duration: 0.7,
 		},
 	},
 };

@@ -1,7 +1,5 @@
-import withTransition from '../HOC/withTransition';
 import { useRouter } from 'next/router';
 import { useAtom } from 'jotai';
-import Link from 'next/link';
 import { experienceAtom } from '../atoms';
 import Experience from '../components/Experience';
 import { useEffect, useState } from 'react';
@@ -31,7 +29,7 @@ function skills() {
 	}, [skillKey, experience]);
 
 	return (
-		<>
+		<div className="page">
 			<div>
 				{skillKey
 					? `My experience using ${skillKey}:`
@@ -43,8 +41,8 @@ function skills() {
 					<Experience key={index} experience={value} />
 				))}
 			</div>
-		</>
+		</div>
 	);
 }
 
-export default withTransition(skills);
+export default skills;

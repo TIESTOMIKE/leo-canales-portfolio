@@ -117,7 +117,7 @@ export default function NavBar() {
 							</motion.div>
 							<div className="flex-1 flex items-center justify-around sm:items-center sm:justify-between">
 								<div className="flex-shrink-0 flex items-center">
-									<Link href={'/'}>
+									<Link href={'/'} scroll={false}>
 										<motion.p
 											animate={{
 												opacity: [
@@ -142,6 +142,7 @@ export default function NavBar() {
 											<Link
 												key={item.name}
 												href={item.href}
+												scroll={false}
 											>
 												<motion.a
 													layout
