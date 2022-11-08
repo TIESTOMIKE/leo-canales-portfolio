@@ -7,7 +7,9 @@ function WordCloud() {
 	const skills = useAtom(skillsAtom)[0];
 	return (
 		<div>
-			<div>Click on any of the following skills to were was used:</div>
+			<div>
+				Click on any of the following skills to know were was used:
+			</div>
 			<div className="flex flex-wrap p-4">
 				{skills.map(skill => (
 					<Link

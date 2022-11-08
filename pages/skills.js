@@ -31,9 +31,14 @@ function skills() {
 	return (
 		<div className="page">
 			<div>
-				{skillKey
-					? `My experience using ${skillKey}:`
-					: 'My experience:'}
+				{skillKey ? (
+					<span>
+						My experience with{' '}
+						<span className="text-orange-500">{skillKey}</span>:
+					</span>
+				) : (
+					'My experience:'
+				)}
 			</div>
 
 			<div className="p-1 md:p-6 w-full">
