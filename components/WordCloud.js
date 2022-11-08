@@ -8,7 +8,7 @@ function WordCloud() {
 	return (
 		<div>
 			<div>
-				Click on any of the following skills to know were was used:
+				Click on any of the following skills to know where was used:
 			</div>
 			<div className="flex flex-wrap p-4">
 				{skills.map(skill => (
