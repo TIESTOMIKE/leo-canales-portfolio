@@ -9,12 +9,15 @@ function skills() {
 	const [experienceFiltered, setExperienceFiltered] = useState(experience);
 	const router = useRouter();
 	const [skillKey, setSkillKey] = useState(router.query?.key);
+	const [roleKey, setRoleKey] = useState(router.query?.role);
 
 	useEffect(() => {
 		if (router.isReady) {
-			const { key } = router.query;
-			if (!key) return null;
-			setSkillKey(key);
+			const { key, role } = router.query;
+
+			if (key) setSkillKey(key);
+			if (role) setRoleKey(role);
+			return null;
 		}
 	}, [router.isReady]);
 
@@ -22,18 +25,20 @@ function skills() {
 		if (skillKey && experience) {
 			setExperienceFiltered(
 				experience.filter(work => {
-					return work.technologies.includes(skillKey);
+					return roleKey
+						? work.roles.includes(skillKey)
+						: work.technologies.includes(skillKey);
 				}),
 			);
 		}
-	}, [skillKey, experience]);
+	}, [skillKey, roleKey, experience]);
 
 	return (
 		<div className="page">
 			<div>
 				{skillKey ? (
 					<span>
-						My experience with{' '}
+						{roleKey ? 'My experience as ' : 'My experience with '}
 						<span className="text-orange-500">{skillKey}</span>:
 					</span>
 				) : (
